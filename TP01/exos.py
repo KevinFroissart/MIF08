@@ -38,6 +38,13 @@ print(total)
 #print([x for x in [5,9,1,24,8] if x%2==0])
 
 def fact(x):
+    """Returns the the factorial of an integer.
+
+    Parameters:
+        x (int):The integer which is to be calculed.
+
+    Returns:
+        fact(x):The integer which gets calculed."""
     return math.factorial(x)
 print(fact(10))
 help(fact)
