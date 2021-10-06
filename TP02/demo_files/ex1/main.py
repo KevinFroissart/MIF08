@@ -1,6 +1,6 @@
 from antlr4 import InputStream
 from antlr4 import CommonTokenStream
-from Example1 import Example1
+from Exo3 import Example1
 
 import sys
 
@@ -9,7 +9,7 @@ def main():
     # InputStream reads characters (from stdin in our case)
     input_stream = InputStream(sys.stdin.read())
     # The generated lexer groups characters into Tokens ...
-    lexer = Example1(input_stream)
+    lexer = Exo3(input_stream)
     # ... and the stream of Tokens is managed by the TokenStream.
     stream = CommonTokenStream(lexer)
 

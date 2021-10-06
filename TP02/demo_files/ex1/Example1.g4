@@ -2,7 +2,7 @@
 
 lexer grammar Example1;
 
-OP : '+'| '*' | '-' | '/' ;
+OP : '+'| '*' | '-' | '/' | '(' | ')';
 DIGIT : [0-9] ;
 LETTER : [A-Za-z] ;
 ID : LETTER (LETTER | DIGIT)* ;             // match idents
