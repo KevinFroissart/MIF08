@@ -10,8 +10,10 @@ statement: expr SCOL    {print($expr.text+" = "+str($expr.val))} // print the va
          ;
 
 expr returns [int val]
-    : e1=expr MULT  e2=expr {$val = $e1.val*$e2.val} // MULT is * (matched before PLUS if possible)
+    : MINUS e1=expr         {$val = -$e1.val} // Unary MINUS
+    | e1=expr MULT  e2=expr {$val = $e1.val*$e2.val} // MULT is * (matched before PLUS if possible)
     | e1=expr PLUS  e2=expr {$val = $e1.val + $e2.val} // PLUS is +
+    | e1=expr MINUS e2=expr {$val = $e1.val - $e2.val} // MINUS is -
     | a=atom {$val = $a.val} // just copy the value
     ;
 
