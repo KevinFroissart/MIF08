@@ -55,7 +55,7 @@ Si vous n'arrivez pas à installer les outils sur vos machines, vous pourrez tra
 
 - :book: 14h: Cours 1: Introduction, machine cible (RISCV), lexing :
     - Introduction au cours, à la compilation et à l'architecture cible : [transparents](https://compil-lyon.gitlabpages.inria.fr/mif08-files-2021/capmif_cours01_intro_et_archi.pdf)
-    - Lexing (et parsing) : [transparents](https://compil-lyon.gitlabpages.inria.fr/mif08-files-2021/capmif_cours02_lexing_parsing.pdf)
+    - Lexing (et parsing) : [transparents](https://compil-lyon.gitlabpages.inria.fr/mif08-files-2021/capmif_cours02_lexing_parsing.pdf) <!-- TODO: passer parsing sur CM 1, sinon il manque un bout pour le TD. -->
     - [Vidéo "teaser"](https://youtu.be/ny7HlqyuM9E)
     - [vidéo d'introduction au cours](https://www.youtube.com/watch?v=zGifE8MfPWA)
     - [vidéo sur RISCV](https://youtu.be/ZdElX9e_tAI)
@@ -84,30 +84,56 @@ Si vous n'arrivez pas à installer les outils sur vos machines, vous pourrez tra
         - Groupe C2 : Nautibus TP2 (Nicolas Louvet)
         - Groupe D1 : Nautibus TP12 (Joris Picot)
         - Groupe D2 : Nautibus TP13 (Hugo Thievenaz)
-    - Énoncé : [TP1 python/archi](https://compil-lyon.gitlabpages.inria.fr/mif08-20/tp1.pdf)
+    - Énoncé : [TP1 python/archi](https://compil-lyon.gitlabpages.inria.fr/mif08-files-2021/tp1.pdf)
     - Fichiers du TP1 : [TP01/](TP01/).
+## Mercredi 6/10/2021
+
+- :book: 8h: Cours 2: Lexing, Parsing, interprétation
+    - Parsing : [deuxième partie des transparents](https://compil-lyon.gitlabpages.inria.fr/mif08-files-2021/capmif_cours02_lexing_parsing.pdf)
+    - [vidéo parsing](https://www.youtube.com/watch?v=y9MrfDzrAmA)
+    - [transparents sémantique et interprète](https://compil-lyon.gitlabpages.inria.fr/mif08-files-2021/capmif_cours03_interpreters.pdf)
+    - [vidéo sémantique et interprète](https://youtu.be/8PYhBsgRO6g)
+
+- :100: QCM noté sur TOMUSS, à faire avant dimanche 9/10/2021, 23:59.
+
+- :pencil2: 9h45: TD, Arbres abstraits, attributions, types
+    - Salles :
+        - Groupe A : Nautibus TD 1
+        - Groupe B : Nautibus TD 2
+        - Groupe C : Nautibus TD 3
+        - Groupe D : Nautibus TD 10
+    - [Énoncé du TD2](https://compil-lyon.gitlabpages.inria.fr/mif08-files-2021/td2.pdf)
+
+- :hammer: 14h-17h15: TP2, ANTLR
+    - Salles :
+        - Groupe A1 : Nautibus TP10
+        - Groupe A2 : Nautibus TP11
+        - Groupe B1 : Nautibus TP5
+        - Groupe B2 : Nautibus TP6
+        - Groupe C1 : Nautibus TP1
+        - Groupe C2 : Nautibus TP2
+        - Groupe D1 : Nautibus TP13
+        - Groupe D2 : Nautibus TP12
+    - Transparents de présentation : [capmif_labs.pdf](https://compil-lyon.gitlabpages.inria.fr/mif08-files-2021/capmif_labs.pdf)
+    - Si besoin : des VM pour vous dépanner en cas de problème sur machine perso : [VM.md](VM.md)
+    - Énoncé : [TP2 antlr](https://compil-lyon.gitlabpages.inria.fr/mif08-files-2021/tp2.pdf)
+    - Fichiers du TP2 : [TP02/](TP02/).
+    - **Date limite pour le rendu (noté) : mardi 12/10/2021, 23h59.**
+
+
+## Pondération des notes (indicative pour l'instant sauf l'examen final qui sera forcément 50%)
+  - QCM : 10% (2% chacun)
+  - TP2 parsing et évaluation d'expression : 5%
+  - TP3 interprète : 10%
+  - TP4 génération de code : 12.5%
+  - TP5 allocation de registres : 12.5%
+  - Examen final : 50 %
+
+La session 2 remplace la note d'examen final.
 
 # BROUILLON DE PLANNING
 
 ```
-06/10/2021:
-  08:00 -> 09:30 : CM 2 (CM, Matthieu Moy : Parsing, semantics)
-  09:45 -> 11:15 : TD 2 (A, Matthieu Moy : AST, Grammar)
-  09:45 -> 11:15 : TD 2 (B, Elise Jeanneau : AST, Grammar)
-  09:45 -> 11:15 : TD 2 (C, Gregoire Pichon : AST, Grammar)
-  09:45 -> 11:15 : TD 2 (D, Joris Picot : AST, Grammar)
-  09:45 -> 11:15 : TD 2 (E, Guillaume Bouchard : AST, Grammar)
-  14:00 -> 17:15 : TP 2 (A1, Matthieu Moy : ANTLR (parsing, semantic actions))
-  14:00 -> 17:15 : TP 2 (B2, Thierry Excoffier : ANTLR (parsing, semantic actions))
-  14:00 -> 17:15 : TP 2 (B1, Elise Jeanneau : ANTLR (parsing, semantic actions))
-  14:00 -> 17:15 : TP 2 (C2, Nicolas Louvet : ANTLR (parsing, semantic actions))
-  14:00 -> 17:15 : TP 2 (C1, Gregoire Pichon : ANTLR (parsing, semantic actions))
-  14:00 -> 17:15 : TP 2 (D2, Joris Picot : ANTLR (parsing, semantic actions))
-  14:00 -> 17:15 : TP 2 (D1, Hugo Thievenaz : ANTLR (parsing, semantic actions))
-  14:00 -> 17:15 : TP 2 (E2, Gabriel Radanne : ANTLR (parsing, semantic actions))
-  14:00 -> 17:15 : TP 2 (E1, Guillaume Bouchard : ANTLR (parsing, semantic actions))
-  14:00 -> 17:15 : TP 2 (A2, Lionel Morel : ANTLR (parsing, semantic actions))
-
 13/10/2021:
   14:00 -> 15:30 : CM 3 (CM, Matthieu Moy : Typing)
   15:45 -> 17:15 : TP 3 (début) (A1, Matthieu Moy : Interpreter)
@@ -202,49 +228,6 @@ Si vous n'arrivez pas à installer les outils sur vos machines, vous pourrez tra
 ```
 
 # CI-DESSOUS, LE PLANNING DE L'ANNEE DERNIERE QUI SERA MIS À JOUR AU FUR ET À MESURE
-
-## Mercredi 14/10/2020
-
-
-- :book: 15h45: Cours 2:
-Lexing, Parsing.
-    - Parsing : [deuxième partie des transparents](https://compil-lyon.gitlabpages.inria.fr/mif08-20/capmif_cours02_lexing_parsing.pdf)
-    - [vidéo parsing](https://www.youtube.com/watch?v=y9MrfDzrAmA)
-    - [transparents sémantique et interprète](https://compil-lyon.gitlabpages.inria.fr/mif08-20/capmif_cours03_interpreters.pdf)
-    - [vidéo sémantique et interprète](https://youtu.be/8PYhBsgRO6g)
-    - chat sur [compil-2021](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2Fynpajp).
-    - Visio en direct à 16h45 sur [BBB (Compilation mif08)](https://classe-info.univ-lyon1.fr/moy-n6a-uip-gtj).
-
-- :100: QCM noté sur TOMUSS, à faire avant 23:59 le jour même (7/10)
-
-## Jeudi 15/10/2020
-
-- :pencil2: 15h45: TD, Arbres abstraits, attributions, types
-
-    Votre salle est affichée sur TOMUSS. Les bleus sont à distance et quelques jaunes sont à distance, les autres en présentiel.
-    - En présentiel :
-        - Nautibus TD10 (24 places) : Matthieu Moy
-        - Nautibus TD11 (20 places) : Guillaume Bouchard
-        - Nautibus TD1 (20 places) : Élise Jeanneau
-    - À distance :
-        - groupe 1 : [compil-groupe-1](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FEqiqPF) sur chat-info, Grégoire Pichon.
-        - groupe 2 : [compil-groupe-2](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2F3Qzt5k) sur chat-info, ~~Laure Gonnord~~ Joris Picot
-    - [Énoncé du TD2](https://compil-lyon.gitlabpages.inria.fr/mif08-20/td2.pdf)
-
-## Mercredi 04/11/2020
-
-- :hammer: TP2, ANTLR : 14h-17h15,
-    - 100% distanciel :
-        - Groupe A : [compil-groupe-a](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FtHfE7j) Laure Gonnord et Joris Picot
-        - Groupe B : [compil-groupe-b](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FqHW2MX) Nicolas Louvet et Matthieu Moy
-        - Groupe C : [compil-groupe-c](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FsuFXKk) Thierry Excoffier et Guillaume Bouchard
-        - Groupe D : [compil-groupe-d](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FkAWmMd) Lionel Morel et Élise Jeanneau
-        - Groupe E : [compil-groupe-e](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FcnEQ9c) Guillaume Salagnac et Grégoire Pichon
-    - Transparents de présentation : [capmif_labs.pdf](https://compil-lyon.gitlabpages.inria.fr/mif08-20/capmif_labs.pdf)
-    - Nouveauté : des VM pour vous dépanner en cas de problème sur machine perso : [VM.md](VM.md)
-    - Énoncé : [TP2 antlr](https://compil-lyon.gitlabpages.inria.fr/mif08-20/tp2.pdf)
-    - Fichiers du TP2 : [TP02/](TP02/).
-    - **Date limite pour le rendu (noté) : dimanche 8/11/2020, 23h59.**
 
 - :book: Cours 3, Typage : 17h30-19h
     - [transparents typage](https://compil-lyon.gitlabpages.inria.fr/mif08-20/capmif_cours04_typing.pdf)
@@ -371,13 +354,3 @@ correction partielle sera fournie à la même heure.
 * Examen de session 1 :
     - Pour les étudiants bénéficiant d'un tiers-temps : 8h-10h, salle Nautibus C2.
     - Pour les étudiants ne bénéficiant pas de tiers-temps : 8h15-9h45, Amphis Déambu (place exacte sur TOMUSS)
-
-## Pondération des notes (indicative pour l'instant)
-  - QCM : 15% (3% chacun)
-  - TP2 parsing et évaluation d'expression : 5%
-  - TP3 interprète : 10%
-  - TP4 génération de code : 10%
-  - TP5 allocation de registres : 10%
-  - Examen final : 50 %
-
-La session 2 remplace la note d'examen final.

@@ -1,5 +1,4 @@
-from typing import Union
-from typing import List
+from typing import (Union, List)
 
 # Union[int, float] means ``either an int or a float''.
 NUMBER = Union[int, float]
