@@ -4,8 +4,7 @@ main:
 	addi	sp,sp,-16
 	sd	ra,8(sp)
 ## Your assembly code there
-	lui	a5,%hi(.LC1)
-	addi	a0,a5,%lo(.LC1)
+	la	a0, .LC1
 	call	println_string
 	li	a0,42
 	call	print_int
@@ -18,7 +17,6 @@ main:
 ## /end of user assembly code
 	ld	ra,8(sp)
 	addi	sp,sp,16
-	jr	ra
 	ret
 
 # Data comes here
