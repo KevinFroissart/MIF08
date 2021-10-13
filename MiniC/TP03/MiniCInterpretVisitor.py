@@ -44,6 +44,7 @@ class MiniCInterpretVisitor(MiniCVisitor):
         return ctx.getText() == "true"
 
     def visitIdAtom(self, ctx) -> MINIC_VALUE:
+        return ctx.getText()
         raise NotImplementedError()
 
     def visitStringAtom(self, ctx) -> str:
@@ -117,7 +118,11 @@ class MiniCInterpretVisitor(MiniCVisitor):
                 return lval / rval
         elif ctx.myop.type == MiniCParser.MOD:
             # TODO : interpret modulo
-            raise NotImplementedError()
+            print(lval)
+            print(rval)
+            print(lval%rval)
+            return lval % rval
+            #raise NotImplementedError()
         else:
             raise MiniCInternalError(
                 "Unknown multiplicative operator '%s'" % ctx.myop)
