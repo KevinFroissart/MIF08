@@ -20,11 +20,23 @@ class MiniCInterpretVisitor(MiniCVisitor):
 
     def visitVarDecl(self, ctx) -> None:
         # Initialise all variables in self._memory
+        # ctx.ID().getText().split(",")
         type_str = ctx.typee().getText()
-        raise NotImplementedError()
+        for var in self.visit(ctx.id_l()):
+            if type_str == "int":
+                self._memory[var] = 0
+            elif type_str == "string":
+                self._memory[var] = ""
+            elif type_str == "bool":
+                self._memory[var] = False
+            elif type_str == "float":
+                self._memory[var] = 0.0
+
 
     def visitIdList(self, ctx) -> List[str]:
-        raise NotImplementedError()
+        list_id = self.visit(ctx.id_l())
+        list_id.append(ctx.ID().getText())
+        return list_id;
 
     def visitIdListBase(self, ctx) -> List[str]:
         return [ctx.ID().getText()]
@@ -44,8 +56,7 @@ class MiniCInterpretVisitor(MiniCVisitor):
         return ctx.getText() == "true"
 
     def visitIdAtom(self, ctx) -> MINIC_VALUE:
-        return ctx.getText()
-        raise NotImplementedError()
+        return self._memory[ctx.getText()]
 
     def visitStringAtom(self, ctx) -> str:
         return ctx.getText()[1:-1]
@@ -117,12 +128,10 @@ class MiniCInterpretVisitor(MiniCVisitor):
             else:
                 return lval / rval
         elif ctx.myop.type == MiniCParser.MOD:
-            # TODO : interpret modulo
-            print(lval)
-            print(rval)
-            print(lval%rval)
-            return lval % rval
-            #raise NotImplementedError()
+            if rval == 0:
+                raise MiniCRuntimeError("Modulo by 0")
+            else:
+                return lval % rval
         else:
             raise MiniCInternalError(
                 "Unknown multiplicative operator '%s'" % ctx.myop)
@@ -152,13 +161,25 @@ class MiniCInterpretVisitor(MiniCVisitor):
         print(val)
 
     def visitAssignStat(self, ctx) -> None:
-        raise NotImplementedError()
+         self._memory[ctx.ID().getText()] = self.visit(ctx.expr())
+        # val = self.visit(ctx.expr())
+        # var = ctx.ID().getText()
+        # if var in self._memory:
+        #     if val in self._memory:
+        #         self._memory[var] = self._memory[val]
+        #     else:
+        #         self._memory[var] = val
+
 
     def visitIfStat(self, ctx) -> None:
-        raise NotImplementedError()
+        if self.visit(ctx.expr()):
+            self.visit(ctx.then_block)
+        elif ctx.else_block is not None:
+            self.visit(ctx.else_block)
 
     def visitWhileStat(self, ctx) -> None:
-        raise NotImplementedError()
+        while self.visit(ctx.expr()):
+            self.visit(ctx.stat_block())
 
     # TOPLEVEL
     def visitProgRule(self, ctx) -> None:
