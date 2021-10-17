@@ -162,14 +162,6 @@ class MiniCInterpretVisitor(MiniCVisitor):
 
     def visitAssignStat(self, ctx) -> None:
          self._memory[ctx.ID().getText()] = self.visit(ctx.expr())
-        # val = self.visit(ctx.expr())
-        # var = ctx.ID().getText()
-        # if var in self._memory:
-        #     if val in self._memory:
-        #         self._memory[var] = self._memory[val]
-        #     else:
-        #         self._memory[var] = val
-
 
     def visitIfStat(self, ctx) -> None:
         if self.visit(ctx.expr()):
