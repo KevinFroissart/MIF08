@@ -8,4 +8,4 @@ int main()
 
 // EXPECTED
 // EXITCODE 1
-// Modulo by 0
+// Division by 0
