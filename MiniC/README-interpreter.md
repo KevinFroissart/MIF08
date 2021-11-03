@@ -4,7 +4,7 @@ LAB3, MIF08 / CAP 2021-22
 
 # Authors
 
-YOUR NAME HERE
+FROISSART Kévin p2002504
 
 # Contents
 
@@ -22,7 +22,16 @@ You can select the files you want to test by using `make tests TEST_FILES='TP03/
 
 # Test design 
 
-TODO : explain your tests. Do not repeat what test files already contain, just give the main objectives of the tests.
+My tests are shared between four separate folders. 
+
+A first set of tests to test all the operators. If they are printed correctly and if error messages are shown as expected,
+in case of divisions by 0 for example.
+
+A second set of tests to test the 'if' and 'while' statements.
+
+A third set of tests to test the type errors on statements, operations and assigns.
+
+Finally, a folder for assign tests.
 
 # Design choices
 

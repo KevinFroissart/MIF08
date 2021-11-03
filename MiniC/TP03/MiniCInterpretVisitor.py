@@ -36,7 +36,7 @@ class MiniCInterpretVisitor(MiniCVisitor):
     def visitIdList(self, ctx) -> List[str]:
         list_id = self.visit(ctx.id_l())
         list_id.append(ctx.ID().getText())
-        return list_id;
+        return list_id
 
     def visitIdListBase(self, ctx) -> List[str]:
         return [ctx.ID().getText()]
@@ -129,7 +129,7 @@ class MiniCInterpretVisitor(MiniCVisitor):
                 return lval / rval
         elif ctx.myop.type == MiniCParser.MOD:
             if rval == 0:
-                raise MiniCRuntimeError("Modulo by 0")
+                raise MiniCRuntimeError("Division by 0")
             else:
                 return lval % rval
         else:
@@ -161,7 +161,7 @@ class MiniCInterpretVisitor(MiniCVisitor):
         print(val)
 
     def visitAssignStat(self, ctx) -> None:
-         self._memory[ctx.ID().getText()] = self.visit(ctx.expr())
+        self._memory[ctx.ID().getText()] = self.visit(ctx.expr())
 
     def visitIfStat(self, ctx) -> None:
         if self.visit(ctx.expr()):
