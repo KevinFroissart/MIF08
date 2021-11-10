@@ -86,6 +86,7 @@ Si vous n'arrivez pas à installer les outils sur vos machines, vous pourrez tra
         - Groupe D2 : Nautibus TP13 (Hugo Thievenaz)
     - Énoncé : [TP1 python/archi](https://compil-lyon.gitlabpages.inria.fr/mif08-files-2021/tp1.pdf)
     - Fichiers du TP1 : [TP01/](TP01/).
+
 ## Mercredi 6/10/2021
 
 - :book: 8h: Cours 2: Lexing, Parsing, interprétation
@@ -94,7 +95,7 @@ Si vous n'arrivez pas à installer les outils sur vos machines, vous pourrez tra
     - [transparents sémantique et interprète](https://compil-lyon.gitlabpages.inria.fr/mif08-files-2021/capmif_cours03_interpreters.pdf)
     - [vidéo sémantique et interprète](https://youtu.be/8PYhBsgRO6g)
 
-- :100: QCM noté sur TOMUSS, à faire avant dimanche 9/10/2021, 23:59.
+- :100: QCM noté sur TOMUSS, à faire avant lundi 11/10/2021, 23:59.
 
 - :pencil2: 9h45: TD, Arbres abstraits, attributions, types
     - Salles :
@@ -120,6 +121,75 @@ Si vous n'arrivez pas à installer les outils sur vos machines, vous pourrez tra
     - Fichiers du TP2 : [TP02/](TP02/).
     - **Date limite pour le rendu (noté) : mardi 12/10/2021, 23h59.**
 
+## Mercredi 13/10/2021
+
+- :book: Cours 3, Typage : 14h-15h30
+    - [transparents typage](https://compil-lyon.gitlabpages.inria.fr/mif08-files-2021/capmif_cours04_typing.pdf)
+    - [vidéo typage](https://youtu.be/2A-hQy_6YlE)
+- :100: QCM noté sur TOMUSS, à faire avant dimanche 17/10/2021, 23:59
+
+- :hammer: TP3, interprète MiniC : 15h45-17h15
+    - Salles :
+        - Groupe A1 : Nautibus TP10
+        - Groupe A2 : Nautibus TP11
+        - Groupe B1 : Nautibus TP5
+        - Groupe B2 : Nautibus TP6
+        - Groupe C1 : Nautibus TP9 (Attention, bug de groupe sur ADE)
+        - Groupe C2 : Nautibus TP14 (Attention, bug de groupe sur ADE)
+        - Groupe D1 : Nautibus TP13
+        - Groupe D2 : Nautibus TP12
+    - Énoncé : [TP3 frontend, interprète](https://compil-lyon.gitlabpages.inria.fr/mif08-files-2021/tp3.pdf)
+    - Fichiers du TP3 : [TP03/](TP03/) puis [MiniC/](MiniC/).
+    - **Date limite de rendu du TP3 : dimanche 7 novembre 2021, 23h59 (vous aurez une séance d'1h30 pour finir le TP le 3/11/2021).**
+
+## Mercredi 3/11/2021
+
+- :hammer: TP3, interprète MiniC (suite) : 14h00-15h30
+    - Salles :
+        - Groupe A1 : Nautibus TP10
+        - Groupe A2 : Nautibus TP11
+        - Groupe B1 : Nautibus TP5
+        - Groupe B2 : Nautibus TP6
+        - Groupe C1 : Nautibus TP7
+        - Groupe C2 : Nautibus TP8
+        - Groupe D1 : Nautibus TP13
+        - Groupe D2 : Nautibus TP12
+
+- :book: Cours 4 : 15h45-17h15
+    - génération de code 3 adresses + allocation naive, [transparents](https://compil-lyon.gitlabpages.inria.fr/mif08-files-2021/capmif_cours05_3ad_codegen.pdf), [vidéo](https://youtu.be/m2x7leFnCN4)
+    - Représentations intermédiaires, [transparents](https://compil-lyon.gitlabpages.inria.fr/mif08-files-2021/capmif_cours06_irs.pdf), [vidéo 6a](https://youtu.be/dD9bRhLfykM), [vidéo 6b](https://youtu.be/Xico_JTK3XQ).
+
+- :100: QCM noté sur TOMUSS, à faire avant Dimanche 7/11/2021, 23:59.
+
+## Mercredi 10/11/2021
+
+- :pencil2: TD 3 : 14h00-15h30 :
+    - Salles :
+        - Groupe A : Nautibus TD 1
+        - Groupe B : Nautibus TD 2
+        - Groupe C : Nautibus TD 3
+        - Groupe D : Nautibus TD 10
+    - Sujet : [TD3 génération de code](https://compil-lyon.gitlabpages.inria.fr/mif08-files-2021/td3.pdf)
+
+- :hammer: TP, 15h45-17h15
+    - Salles :
+        - Groupe A1 : Nautibus TP10
+        - Groupe A2 : Nautibus TP11
+        - Groupe B1 : Nautibus TP5
+        - Groupe B2 : Nautibus TP6
+        - Groupe C1 : Nautibus TP7
+        - Groupe C2 : Nautibus TP8
+        - Groupe D1 : Nautibus TP13
+        - Groupe D2 : Nautibus TP12
+    - Transparents de présentation : [capmif_labs.pdf](https://compil-lyon.gitlabpages.inria.fr/mif08-20/capmif_labs.pdf)
+    - Rappel : des VM pour vous dépanner en cas de problème sur machine perso : [VM.md](VM.md)
+    - Énoncé : [TP4 génération de code](https://compil-lyon.gitlabpages.inria.fr/mif08-files-2021/tp4.pdf)
+    - Fichiers du TP4 : [MiniC/TP04/](MiniC/TP04/).
+    - **Date limite pour le rendu (noté) : 17 décembre 2021, 23h59.** Si vous rendez après la deadline mais avant le 2 janvier 2022, 23h59, un malus d'un point sur 20 est appliqué, puis un point de malus par jour de retard supplémentaire. Aucun TP ne sera accepté après le mardi 4 janvier 2022, 23h59.
+
+## Mercredi 1/12/2021
+
+- :hammer: TP 4 (suite), 14h-17h15 : cf. ci-dessus pour les supports et les salles (mêmes que le 10/11)
 
 ## Pondération des notes (indicative pour l'instant sauf l'examen final qui sera forcément 50%)
   - QCM : 10% (2% chacun)
@@ -134,61 +204,6 @@ La session 2 remplace la note d'examen final.
 # BROUILLON DE PLANNING
 
 ```
-13/10/2021:
-  14:00 -> 15:30 : CM 3 (CM, Matthieu Moy : Typing)
-  15:45 -> 17:15 : TP 3 (début) (A1, Matthieu Moy : Interpreter)
-  15:45 -> 17:15 : TP 3 (début) (B2, Thierry Excoffier : Interpreter)
-  15:45 -> 17:15 : TP 3 (début) (B1, Elise Jeanneau : Interpreter)
-  15:45 -> 17:15 : TP 3 (début) (C2, Nicolas Louvet : Interpreter)
-  15:45 -> 17:15 : TP 3 (début) (C1, Gregoire Pichon : Interpreter)
-  15:45 -> 17:15 : TP 3 (début) (D2, Joris Picot : Interpreter)
-  15:45 -> 17:15 : TP 3 (début) (D1, Hugo Thievenaz : Interpreter)
-  15:45 -> 17:15 : TP 3 (début) (E2, Gabriel Radanne : Interpreter)
-  15:45 -> 17:15 : TP 3 (début) (E1, Guillaume Bouchard : Interpreter)
-  15:45 -> 17:15 : TP 3 (début) (A2, Lionel Morel : Interpreter)
-
-03/11/2021:
-  14:00 -> 15:30 : TP 3 (fin) (A1, Matthieu Moy : Interpreter)
-  14:00 -> 15:30 : TP 3 (fin) (B2, Thierry Excoffier : Interpreter)
-  14:00 -> 15:30 : TP 3 (fin) (B1, Elise Jeanneau : Interpreter)
-  14:00 -> 15:30 : TP 3 (fin) (C2, Nicolas Louvet : Interpreter)
-  14:00 -> 15:30 : TP 3 (fin) (C1, Gregoire Pichon : Interpreter)
-  14:00 -> 15:30 : TP 3 (fin) (D2, Joris Picot : Interpreter)
-  14:00 -> 15:30 : TP 3 (fin) (D1, Hugo Thievenaz : Interpreter)
-  14:00 -> 15:30 : TP 3 (fin) (E2, Gabriel Radanne : Interpreter)
-  14:00 -> 15:30 : TP 3 (fin) (E1, Guillaume Bouchard : Interpreter)
-  14:00 -> 15:30 : TP 3 (fin) (A2, Lionel Morel : Interpreter)
-  15:45 -> 17:15 : CM 4 (CM, Matthieu Moy : Code generation)
-
-10/11/2021:
-  14:00 -> 15:30 : TD 3 (A, Matthieu Moy : AST, Grammar)
-  14:00 -> 15:30 : TD 3 (B, Elise Jeanneau : AST, Grammar)
-  14:00 -> 15:30 : TD 3 (C, Gregoire Pichon : AST, Grammar)
-  14:00 -> 15:30 : TD 3 (D, Joris Picot : AST, Grammar)
-  14:00 -> 15:30 : TD 3 (E, Guillaume Bouchard : AST, Grammar)
-  15:45 -> 17:15 : TP 4 (début) (A1, Matthieu Moy : Code generation)
-  15:45 -> 17:15 : TP 4 (début) (B2, Thierry Excoffier : Code generation)
-  15:45 -> 17:15 : TP 4 (début) (B1, Elise Jeanneau : Code generation)
-  15:45 -> 17:15 : TP 4 (début) (C2, Nicolas Louvet : Code generation)
-  15:45 -> 17:15 : TP 4 (début) (C1, Gregoire Pichon : Code generation)
-  15:45 -> 17:15 : TP 4 (début) (D2, Joris Picot : Code generation)
-  15:45 -> 17:15 : TP 4 (début) (D1, Hugo Thievenaz : Code generation)
-  15:45 -> 17:15 : TP 4 (début) (E2, Gabriel Radanne : Code generation)
-  15:45 -> 17:15 : TP 4 (début) (E1, Guillaume Bouchard : Code generation)
-  15:45 -> 17:15 : TP 4 (début) (A2, Lionel Morel : Code generation)
-
-01/12/2021:
-  14:00 -> 17:15 : TP 4 (fin) (A1, Matthieu Moy : Code generation)
-  14:00 -> 17:15 : TP 4 (fin) (B2, Thierry Excoffier : Code generation)
-  14:00 -> 17:15 : TP 4 (fin) (B1, Elise Jeanneau : Code generation)
-  14:00 -> 17:15 : TP 4 (fin) (C2, Nicolas Louvet : Code generation)
-  14:00 -> 17:15 : TP 4 (fin) (C1, Gregoire Pichon : Code generation)
-  14:00 -> 17:15 : TP 4 (fin) (D2, Joris Picot : Code generation)
-  14:00 -> 17:15 : TP 4 (fin) (D1, Hugo Thievenaz : Code generation)
-  14:00 -> 17:15 : TP 4 (fin) (E2, Gabriel Radanne : Code generation)
-  14:00 -> 17:15 : TP 4 (fin) (E1, Guillaume Bouchard : Code generation)
-  14:00 -> 17:15 : TP 4 (fin) (A2, Lionel Morel : Code generation)
-
 08/12/2021:
   14:00 -> 15:30 : CM 5 (CM, Matthieu Moy : IR and Register allocations)
   15:45 -> 17:15 : TD 4 (A, Matthieu Moy : Liveness analysis)
@@ -196,6 +211,8 @@ La session 2 remplace la note d'examen final.
   15:45 -> 17:15 : TD 4 (C, Gregoire Pichon : Liveness analysis)
   15:45 -> 17:15 : TD 4 (D, Joris Picot : Liveness analysis)
   15:45 -> 17:15 : TD 4 (E, Guillaume Bouchard : Liveness analysis)
+
+Deadline TP4 juste avant les vacances de noel
 
 05/01/2022:
   14:00 -> 15:30 : TD 5 (A, Matthieu Moy : Register allocation)
@@ -225,69 +242,11 @@ La session 2 remplace la note d'examen final.
   14:00 -> 15:30 : TP 5 (fin) (E2, Gabriel Radanne : Smart register allocation)
   14:00 -> 15:30 : TP 5 (fin) (E1, Guillaume Bouchard : Smart register allocation)
   14:00 -> 15:30 : TP 5 (fin) (A2, Lionel Morel : Smart register allocation)
+
+Deadline TP5 mercredi 12/1 soir pour éviter les clashs avec les deadlines mif03 (7, 10, 11, 13, 14 janvier selon les groupes).
 ```
 
 # CI-DESSOUS, LE PLANNING DE L'ANNEE DERNIERE QUI SERA MIS À JOUR AU FUR ET À MESURE
-
-- :book: Cours 3, Typage : 17h30-19h
-    - [transparents typage](https://compil-lyon.gitlabpages.inria.fr/mif08-20/capmif_cours04_typing.pdf)
-    - [vidéo typage](https://youtu.be/2A-hQy_6YlE)
-    - chat sur [compil-2021](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2Fynpajp).
-    - Visio en direct à 18h15 sur [BBB (Compilation mif08)](https://classe-info.univ-lyon1.fr/moy-n6a-uip-gtj).
-
-- :100: QCM noté sur TOMUSS, à faire avant 23:59 le jour même (4/11)
-
-## Vendredi 13/11/2020 ou Mercredi 18/11/2020
-
-- :hammer: TP3, interprète MiniC : 14h-17h15 (même horaire pour le 13/11 et 18/11)
-    - 100% distanciel :
-        - Groupe A : [compil-groupe-a](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FtHfE7j) Laure Gonnord et Joris Picot
-        - Groupe B : [compil-groupe-b](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FqHW2MX) Nicolas Louvet et Matthieu Moy
-        - Groupe C : [compil-groupe-c](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FsuFXKk) Thierry Excoffier et Guillaume Bouchard
-        - Groupe D : [compil-groupe-d](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FkAWmMd) Lionel Morel et Élise Jeanneau
-        - Groupe E1 (le groupe E2 est décalé au 18/11, mais peut venir poser des questions le 13/11 quand même) : [compil-groupe-e](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FcnEQ9c) Guillaume Salagnac
-    - Le 18/11 :
-        - Groupe E2 (les autres étudiants peuvent en profiter pour passer poser des questions si le TP n'est pas fini): [compil-groupe-e](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FcnEQ9c) Grégoire Pichon
-    - Énoncé : [TP3 frontend, évaluateur](https://compil-lyon.gitlabpages.inria.fr/mif08-20/tp3.pdf)
-    - Fichiers du TP3 : [MiniC/](MiniC/).
-    - **Date limite de rendu du TP3 (stricte, note 0 pour tout rendu en retard) : 4 décembre 2020, 23h59.**
-
-## Mercredi 2/12/2020
-
-- :book: Cours 4 : 14h-15h30
-    - génération de code 3 adresses + allocation naive, [transparents](https://compil-lyon.gitlabpages.inria.fr/mif08-20/capmif_cours05_3ad_codegen.pdf), [vidéo](https://youtu.be/m2x7leFnCN4)
-    - Représentations intermédiaires, [transparents](https://compil-lyon.gitlabpages.inria.fr/mif08-20/capmif_cours06_irs.pdf), [vidéo 6a](https://youtu.be/dD9bRhLfykM), [vidéo 6b](https://youtu.be/Xico_JTK3XQ).
-    - Visio en direct à 14h50 sur [BBB (Compilation mif08)](https://classe-info.univ-lyon1.fr/moy-n6a-uip-gtj).
-
-- :pencil2: TD 3 : 15h45-17h15 :
-    - 100% distanciel :
-        - Groupe A : [compil-groupe-a](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FtHfE7j) Laure Gonnord
-        - Groupe B : [compil-groupe-b](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FqHW2MX) Matthieu Moy
-        - Groupe C : [compil-groupe-c](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FsuFXKk) Guillaume Bouchard
-        - Groupe D : [compil-groupe-d](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FkAWmMd) Élise Jeanneau
-        - Groupe E : [compil-groupe-e](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FcnEQ9c) Grégoire Pichon
-    - Sujet : [TD3 génération de code](https://compil-lyon.gitlabpages.inria.fr/mif08-20/td3.pdf)
-
-- :100: QCM noté sur TOMUSS, à faire avant 23:59 le jour même (2/12)
-
-## Mercredi 9/12/2020
-
-- :hammer: TP, 14h-17h15
-    - 100% distanciel :
-        - Groupe A : [compil-groupe-a](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FtHfE7j) Laure Gonnord et Joris Picot
-        - Groupe B : [compil-groupe-b](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FqHW2MX) Nicolas Louvet et Matthieu Moy
-        - Groupe C : [compil-groupe-c](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FsuFXKk) Guillaume Bouchard
-        - Groupe D : [compil-groupe-d](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FkAWmMd) Lionel Morel et Élise Jeanneau
-        - Groupe E : [compil-groupe-e](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FcnEQ9c) Guillaume Salagnac et Grégoire Pichon
-    - Transparents de présentation : [capmif_labs.pdf](https://compil-lyon.gitlabpages.inria.fr/mif08-20/capmif_labs.pdf)
-    - Rappel : des VM pour vous dépanner en cas de problème sur machine perso : [VM.md](VM.md)
-    - Énoncé :  [TP4 génération de code](https://compil-lyon.gitlabpages.inria.fr/mif08-20/tp4.pdf)
-    - Fichiers du TP4 : [MiniC/TP04/](MiniC/TP04/).
-    - **Date limite pour le rendu (noté) :**
-        - Si vous rendez avant dimanche 13/12/2020, 23h59, barème spécial Noël sur 22 points (notes plafonées à 20).
-        - Si vous rendez avant lundi 4/01/2021, 23h59, barème normal sur 20. Après cette date, malus de 1 point par jour de retard.
-        - Aucun TP ne sera accepté après mercredi 6, 14h00.
-        - Si vous faites plusieurs rendus sur TOMUSS, c'est la date du dernier rendu qui est prise en compte.
 
 ## Jeudi 10/12/2020
 
@@ -295,7 +254,6 @@ La session 2 remplace la note d'examen final.
 
 - :book: Cours 5, allocation de registres
     - Register allocation + data-flow analyses : [transparents](https://compil-lyon.gitlabpages.inria.fr/mif08-20/capmif_cours07_regalloc.pdf), [vidéo première partie](https://youtu.be/9902mMgDIK8), [vidéo deuxième partie](https://youtu.be/LknSDccweFw).
-    - Visio en direct à 16h45 sur [BBB (Compilation mif08)](https://classe-info.univ-lyon1.fr/moy-n6a-uip-gtj).
 
 - :100: QCM noté sur TOMUSS, à faire avant 23:59 le jour même (10/12)
 
