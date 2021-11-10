@@ -92,14 +92,27 @@ class MiniCCodeGen3AVisitor(MiniCVisitor):
     def visitAtomExpr(self, ctx) -> Operands.Temporary:
         return self.visit(ctx.atom())
 
+    # python3 MiniCC.py --reg-alloc=none TP04/tests/provided/step1/test_vars.c
     def visitAdditiveExpr(self, ctx) -> Operands.Temporary:
-        raise NotImplementedError() # TODO (Exercise 2)
+        lval = self.visit(ctx.expr(0))
+        rval = self.visit(ctx.expr(1))
+        dest_temp = self._current_function.new_tmp()
+        self._current_function.add_instruction_ADD(dest_temp, lval, rval)
+        return dest_temp # TODO (Exercise 2)
 
     def visitOrExpr(self, ctx) -> Operands.Temporary:
-        raise NotImplementedError() # TODO (Exercise 2)
+        lval = self.visit(ctx.expr(0))
+        rval = self.visit(ctx.expr(1))
+        dest_temp = self._current_function.new_tmp()
+        self._current_function.add_instruction_OR(dest_temp, lval, rval)
+        return dest_temp # TODO (Exercise 2)
 
     def visitAndExpr(self, ctx) -> Operands.Temporary:
-        raise NotImplementedError() # TODO (Exercise 2)
+        lval = self.visit(ctx.expr(0))
+        rval = self.visit(ctx.expr(1))
+        dest_temp = self._current_function.new_tmp()
+        self._current_function.add_instruction_AND(dest_temp, lval, rval)
+        return dest_temp # TODO (Exercise 2)
 
     def visitEqualityExpr(self, ctx) -> Operands.Temporary:
         return self.visitRelationalExpr(ctx)
@@ -113,6 +126,7 @@ class MiniCCodeGen3AVisitor(MiniCVisitor):
         raise NotImplementedError() # TODO (Exercise 5)
 
     def visitMultiplicativeExpr(self, ctx) -> Operands.Temporary:
+        print(ctx.myop.text)
         div_by_zero_lbl = self._current_function.get_label_div_by_zero()
         raise NotImplementedError() # TODO (Exercise 2 or at the end)
 
