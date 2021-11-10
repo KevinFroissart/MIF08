@@ -25,7 +25,6 @@ main:
 end:
 	ld	ra,8(sp)
 	addi	sp,sp,16
-	jr	ra
 	ret
 
 # Data comes here
