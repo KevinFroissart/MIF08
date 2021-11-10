@@ -128,7 +128,22 @@ class MiniCCodeGen3AVisitor(MiniCVisitor):
     def visitMultiplicativeExpr(self, ctx) -> Operands.Temporary:
         print(ctx.myop.text)
         div_by_zero_lbl = self._current_function.get_label_div_by_zero()
-        raise NotImplementedError() # TODO (Exercise 2 or at the end)
+        lval = self.visit(ctx.expr(0))
+        rval = self.visit(ctx.expr(1))
+        dest_temp = self._current_function.new_tmp()
+        if ctx.myop.type == MiniCParser.MULT:
+            self._current_function.add_instruction_MUL(dest_temp, lval, rval)
+            return dest_temp
+        elif ctx.myop.type == MiniCParser.DIV:
+            if rval.text == 0:
+                print(div_by_zero_lbl)
+                raise MiniCInternalError("Division by 0")
+            self._current_function.add_instruction_DIV(dest_temp, lval, rval)
+            return dest_temp
+        else:
+            raise MiniCInternalError(
+                        "Unknown multiplicative operator '%s'" % ctx.myop.text)
+        # TODO (Exercise 2 or at the end)
 
     def visitNotExpr(self, ctx) -> Operands.Temporary:
         raise NotImplementedError() # TODO (Exercise 5)
