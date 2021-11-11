@@ -71,8 +71,15 @@ class MiniCCodeGen3AVisitor(MiniCVisitor):
         raise MiniCUnsupportedError("float literal")
 
     def visitBooleanAtom(self, ctx) -> Operands.Temporary:
-        # true is 1 false is 0
-        raise NotImplementedError() # TODO (Exercise 5)
+        val = ctx.getText()
+        dest_temp = self._current_function.new_tmp()
+        if val == "true":
+            self._current_function.add_instruction_LI(dest_temp, 1)
+            return dest_temp
+        elif val == "false":
+            self._current_function.add_instruction_LI(dest_temp, 0)
+            return dest_temp
+        # (Exercise 5)
 
     def visitIdAtom(self, ctx) -> Operands.Temporary:
         try:
@@ -97,22 +104,30 @@ class MiniCCodeGen3AVisitor(MiniCVisitor):
         lval = self.visit(ctx.expr(0))
         rval = self.visit(ctx.expr(1))
         dest_temp = self._current_function.new_tmp()
-        self._current_function.add_instruction_ADD(dest_temp, lval, rval)
-        return dest_temp # TODO (Exercise 2)
+        if ctx.myop.type == MiniCParser.PLUS:
+            self._current_function.add_instruction_ADD(dest_temp, lval, rval)
+            return dest_temp
+        elif ctx.myop.type == MiniCParser.MINUS:
+            self._current_function.add_instruction_SUB(dest_temp, lval, rval)
+            return dest_temp
+        else:
+            raise MiniCInternalError(
+                        "Unknown additive operator '%s'" % ctx.myop.text)
+        # (Exercise 2)
 
     def visitOrExpr(self, ctx) -> Operands.Temporary:
         lval = self.visit(ctx.expr(0))
         rval = self.visit(ctx.expr(1))
         dest_temp = self._current_function.new_tmp()
         self._current_function.add_instruction_OR(dest_temp, lval, rval)
-        return dest_temp # TODO (Exercise 2)
+        return dest_temp # (Exercise 2)
 
     def visitAndExpr(self, ctx) -> Operands.Temporary:
         lval = self.visit(ctx.expr(0))
         rval = self.visit(ctx.expr(1))
         dest_temp = self._current_function.new_tmp()
         self._current_function.add_instruction_AND(dest_temp, lval, rval)
-        return dest_temp # TODO (Exercise 2)
+        return dest_temp # (Exercise 2)
 
     def visitEqualityExpr(self, ctx) -> Operands.Temporary:
         return self.visitRelationalExpr(ctx)
@@ -123,10 +138,19 @@ class MiniCCodeGen3AVisitor(MiniCVisitor):
             print("relational expression:")
             print(Trees.toStringTree(ctx, None, self._parser))
             print("Condition:", c)
+        # lval = self.visit(ctx.expr(0))
+        # rval = self.visit(ctx.expr(1))
+        # if ctx.myop.type == MiniCParser.LT:
+        #     return lval < rval
+        # elif ctx.myop.type == MiniCParser.LTEQ:
+        #     return lval <= rval
+        # elif ctx.myop.type == MiniCParser.GT:
+        #     return lval > rval
+        # elif ctx.myop.type == MiniCParser.GTEQ:
+        #     return lval >= rval
         raise NotImplementedError() # TODO (Exercise 5)
 
     def visitMultiplicativeExpr(self, ctx) -> Operands.Temporary:
-        print(ctx.myop.text)
         div_by_zero_lbl = self._current_function.get_label_div_by_zero()
         lval = self.visit(ctx.expr(0))
         rval = self.visit(ctx.expr(1))
@@ -135,9 +159,8 @@ class MiniCCodeGen3AVisitor(MiniCVisitor):
             self._current_function.add_instruction_MUL(dest_temp, lval, rval)
             return dest_temp
         elif ctx.myop.type == MiniCParser.DIV:
-            if rval.text == 0:
-                print(div_by_zero_lbl)
-                raise MiniCInternalError("Division by 0")
+            if ctx.expr(1).getText() == '0':
+                self._current_function.add_instruction_JUMP(div_by_zero_lbl)
             self._current_function.add_instruction_DIV(dest_temp, lval, rval)
             return dest_temp
         else:
@@ -146,10 +169,17 @@ class MiniCCodeGen3AVisitor(MiniCVisitor):
         # TODO (Exercise 2 or at the end)
 
     def visitNotExpr(self, ctx) -> Operands.Temporary:
-        raise NotImplementedError() # TODO (Exercise 5)
+        dest_temp = self._current_function.new_tmp()
+        val = self.visit(ctx.expr())
+        self._current_function.add_instruction_NOT(dest_temp, val)
+        return dest_temp # TODO (Exercise 5)
 
     def visitUnaryMinusExpr(self, ctx) -> Operands.Temporary:
-        raise NotImplementedError("unaryminusexpr") # TODO (Exercise 2)
+        dest_temp = self._current_function.new_tmp()
+        val = self.visit(ctx.expr())
+        self._current_function.add_instruction_SUB(dest_temp, val, val)
+        self._current_function.add_instruction_SUB(dest_temp, val, val)
+        return dest_temp # (Exercise 2)
 
     def visitProgRule(self, ctx) -> None:
         self.visitChildren(ctx)

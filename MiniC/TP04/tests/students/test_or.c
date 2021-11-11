@@ -6,10 +6,10 @@ int main() {
     n = true;
     m = false;
     if(n || m) {
-    println_string("OK")
+    println_string("OK");
     }
     else {
-    println_string("KO")
+    println_string("KO");
     }
     
     return 0;
