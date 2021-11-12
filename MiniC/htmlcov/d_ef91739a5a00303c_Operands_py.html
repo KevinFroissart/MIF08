@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-    <title>Coverage for TP04/Operands.py: 79%</title>
+    <title>Coverage for TP04/Operands.py: 82%</title>
     <link rel="icon" sizes="32x32" href="favicon_32.png">
     <link rel="stylesheet" href="style.css" type="text/css">
     <script type="text/javascript" src="jquery.min.js"></script>
@@ -18,13 +18,13 @@
 <div id="header">
     <div class="content">
         <h1>Coverage for <b>TP04/Operands.py</b> :
-            <span class="pc_cov">79%</span>
+            <span class="pc_cov">82%</span>
         </h1>
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
         <h2 class="stats">
             133 statements &nbsp;
-            <button type="button" class="run shortkey_r button_toggle_run" title="Toggle lines run">105 run</button>
-            <button type="button" class="mis show_mis shortkey_m button_toggle_mis" title="Toggle lines missing">28 missing</button>
+            <button type="button" class="run shortkey_r button_toggle_run" title="Toggle lines run">109 run</button>
+            <button type="button" class="mis show_mis shortkey_m button_toggle_mis" title="Toggle lines missing">24 missing</button>
             <button type="button" class="exc show_exc shortkey_x button_toggle_exc" title="Toggle lines excluded">1 excluded</button>
         </h2>
     </div>
@@ -109,16 +109,16 @@
     <p id="t55" class="run"><span class="n"><a href="#t55">55</a></span><span class="t">    <span class="key">def</span> <span class="nam">__init__</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">optype</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t56" class="run"><span class="n"><a href="#t56">56</a></span><span class="t">        <span class="key">if</span> <span class="nam">optype</span> <span class="key">in</span> <span class="nam">opdict</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t57" class="run"><span class="n"><a href="#t57">57</a></span><span class="t">            <span class="nam">self</span><span class="op">.</span><span class="nam">_op</span> <span class="op">=</span> <span class="nam">opdict</span><span class="op">[</span><span class="nam">optype</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t58" class="mis show_mis"><span class="n"><a href="#t58">58</a></span><span class="t">        <span class="key">elif</span> <span class="nam">str</span><span class="op">(</span><span class="nam">optype</span><span class="op">)</span> <span class="key">in</span> <span class="nam">all_ops</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t59" class="mis show_mis"><span class="n"><a href="#t59">59</a></span><span class="t">            <span class="nam">self</span><span class="op">.</span><span class="nam">_op</span> <span class="op">=</span> <span class="nam">str</span><span class="op">(</span><span class="nam">optype</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t58" class="run"><span class="n"><a href="#t58">58</a></span><span class="t">        <span class="key">elif</span> <span class="nam">str</span><span class="op">(</span><span class="nam">optype</span><span class="op">)</span> <span class="key">in</span> <span class="nam">all_ops</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t59" class="run"><span class="n"><a href="#t59">59</a></span><span class="t">            <span class="nam">self</span><span class="op">.</span><span class="nam">_op</span> <span class="op">=</span> <span class="nam">str</span><span class="op">(</span><span class="nam">optype</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t60" class="pln"><span class="n"><a href="#t60">60</a></span><span class="t">        <span class="key">else</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t61" class="exc show_exc"><span class="n"><a href="#t61">61</a></span><span class="t">            <span class="key">raise</span> <span class="nam">MiniCInternalError</span><span class="op">(</span><span class="str">"Unsupported comparison operator %s"</span><span class="op">,</span> <span class="nam">optype</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t62" class="pln"><span class="n"><a href="#t62">62</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t63" class="run"><span class="n"><a href="#t63">63</a></span><span class="t">    <span class="key">def</span> <span class="nam">negate</span><span class="op">(</span><span class="nam">self</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t64" class="mis show_mis"><span class="n"><a href="#t64">64</a></span><span class="t">        <span class="key">return</span> <span class="nam">Condition</span><span class="op">(</span><span class="nam">opnot_dict</span><span class="op">[</span><span class="nam">self</span><span class="op">.</span><span class="nam">_op</span><span class="op">]</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t64" class="run"><span class="n"><a href="#t64">64</a></span><span class="t">        <span class="key">return</span> <span class="nam">Condition</span><span class="op">(</span><span class="nam">opnot_dict</span><span class="op">[</span><span class="nam">self</span><span class="op">.</span><span class="nam">_op</span><span class="op">]</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t65" class="pln"><span class="n"><a href="#t65">65</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t66" class="run"><span class="n"><a href="#t66">66</a></span><span class="t">    <span class="key">def</span> <span class="nam">__str__</span><span class="op">(</span><span class="nam">self</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t67" class="mis show_mis"><span class="n"><a href="#t67">67</a></span><span class="t">        <span class="key">return</span> <span class="nam">self</span><span class="op">.</span><span class="nam">_op</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t67" class="run"><span class="n"><a href="#t67">67</a></span><span class="t">        <span class="key">return</span> <span class="nam">self</span><span class="op">.</span><span class="nam">_op</span>&nbsp;</span><span class="r"></span></p>
     <p id="t68" class="pln"><span class="n"><a href="#t68">68</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t69" class="pln"><span class="n"><a href="#t69">69</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t70" class="run"><span class="n"><a href="#t70">70</a></span><span class="t"><span class="key">class</span> <span class="nam">Function</span><span class="op">(</span><span class="nam">Operand</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
@@ -327,7 +327,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v6.0.2</a>,
-            created at 2021-11-11 01:11 +0100
+            created at 2021-11-13 00:11 +0100
         </p>
     </div>
 </div>

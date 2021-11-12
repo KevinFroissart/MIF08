@@ -2,12 +2,12 @@
 
 int main() {
     if(4==4){
-   	println_string("OK");
+   	println_int(1);
     } else {
-   	println_string("KO");
+   	println_int(0);
     }
     return 0;
 }
 
 // EXPECTED
-// OK
+// 1
