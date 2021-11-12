@@ -72,6 +72,7 @@ class MiniCCodeGen3AVisitor(MiniCVisitor):
 
     def visitBooleanAtom(self, ctx) -> Operands.Temporary:
         val = ctx.getText()
+        print(val)
         dest_temp = self._current_function.new_tmp()
         if val == "true":
             self._current_function.add_instruction_LI(dest_temp, 1)
@@ -79,6 +80,9 @@ class MiniCCodeGen3AVisitor(MiniCVisitor):
         elif val == "false":
             self._current_function.add_instruction_LI(dest_temp, 0)
             return dest_temp
+        else:
+            raise MiniCInternalError(
+                "Unknown boolean value '%s'" % val)
         # (Exercise 5)
 
     def visitIdAtom(self, ctx) -> Operands.Temporary:
@@ -138,17 +142,24 @@ class MiniCCodeGen3AVisitor(MiniCVisitor):
             print("relational expression:")
             print(Trees.toStringTree(ctx, None, self._parser))
             print("Condition:", c)
-        # lval = self.visit(ctx.expr(0))
-        # rval = self.visit(ctx.expr(1))
-        # if ctx.myop.type == MiniCParser.LT:
-        #     return lval < rval
-        # elif ctx.myop.type == MiniCParser.LTEQ:
-        #     return lval <= rval
-        # elif ctx.myop.type == MiniCParser.GT:
-        #     return lval > rval
-        # elif ctx.myop.type == MiniCParser.GTEQ:
-        #     return lval >= rval
-        raise NotImplementedError() # TODO (Exercise 5)
+        # dest <- new_tmp()
+        dest_temp = self._current_function.new_tmp()
+        # t1 <- GenCodeExpr(e1)
+        lval = self.visit(ctx.expr(0))
+        # t2 <- GenCodeExpr(e2)
+        rval = self.visit(ctx.expr(1))
+        # endrel <- new_label()
+        endrel = self._current_function.new_label("endrel")
+        # code.add("li dest, 0")
+        self._current_function.add_instruction_LI(dest_temp, 0)
+        # if t1>=t2 jump to endrel
+        # code.add("bge endrel, t1, t2")
+        self._current_function.add_instruction_cond_JUMP(endrel, lval, Condition.negate(c), rval)
+        # code.add("li dest, 1")
+        self._current_function.add_instruction_LI(dest_temp, 1)
+        # code.addLabel(endrel)
+        self._current_function.add_label(endrel)
+        return dest_temp # (Exercise 5)
 
     def visitMultiplicativeExpr(self, ctx) -> Operands.Temporary:
         div_by_zero_lbl = self._current_function.get_label_div_by_zero()
@@ -177,8 +188,9 @@ class MiniCCodeGen3AVisitor(MiniCVisitor):
     def visitUnaryMinusExpr(self, ctx) -> Operands.Temporary:
         dest_temp = self._current_function.new_tmp()
         val = self.visit(ctx.expr())
-        self._current_function.add_instruction_SUB(dest_temp, val, val)
-        self._current_function.add_instruction_SUB(dest_temp, val, val)
+        zero = self._current_function.new_tmp()
+        self._current_function.add_instruction_LI(zero, 0)
+        self._current_function.add_instruction_SUB(dest_temp, zero, val)
         return dest_temp # (Exercise 2)
 
     def visitProgRule(self, ctx) -> None:
@@ -210,9 +222,31 @@ class MiniCCodeGen3AVisitor(MiniCVisitor):
     def visitIfStat(self, ctx) -> None:
         if self._debug:
             print("if statement")
+        # lelse <- new_label()
+        else_label = self._current_function.new_label("else")
+        # lendif <- new_label()
         end_if_label = self._current_function.new_label("end_if")
-        raise NotImplementedError() # TODO (Exercise 5)
-        self._current_function.add_label(end_if_label)
+        # t1 <- GenCodeExpr(b)
+        bool_value = self.visit(ctx.expr())
+        # if the condition is false, jump to else
+        # code.add("beq lelse, t1, 0")
+        zero = self._current_function.new_tmp()
+        self._current_function.add_instruction_LI(zero, 0)
+        if ctx.else_block is not None :
+            self._current_function.add_instruction_cond_JUMP(else_label, bool_value, Condition(MiniCParser.EQ), zero)
+        else :
+            self._current_function.add_instruction_cond_JUMP(end_if_label, bool_value, Condition(MiniCParser.EQ), zero)
+        # GenCodeSmt(S1)  # then
+        self.visit(ctx.then_block)
+        # code.add("j lendif")
+        self._current_function.add_instruction_JUMP(end_if_label)
+        # code.addLabel(lelse)
+        if ctx.else_block is not None:
+            self._current_function.add_label(else_label)
+        # GenCodeSmt(S2)  # else
+            self.visit(ctx.else_block)
+        # code.addLabel(lendif)
+        self._current_function.add_label(end_if_label) # (Exercise 5)
 
     def visitWhileStat(self, ctx) -> None:
         if self._debug:
@@ -220,7 +254,25 @@ class MiniCCodeGen3AVisitor(MiniCVisitor):
             print(Trees.toStringTree(ctx.expr(), None, self._parser))
             print("and block is:")
             print(Trees.toStringTree(ctx.stat_block(), None, self._parser))
-        raise NotImplementedError() # TODO (Exercise 5)
+        # ltest < - new_label()
+        test_label = self._current_function.new_label("test")
+        # lendwhile < - new_label()
+        end_while_label = self._current_function.new_label("endwhile")
+        # code.addLabel(ltest)
+        self._current_function.add_label(test_label)
+        # t1 < - GenCodeExpr(b)
+        bool_value = self.visit(ctx.expr())
+        # code.add("beq lendwhile, t1, 0")
+        zero = self._current_function.new_tmp()
+        self._current_function.add_instruction_LI(zero, 0)
+        self._current_function.add_instruction_cond_JUMP(end_while_label, bool_value, Condition(MiniCParser.EQ), zero)
+        # GenCodeSmt(S)  # execute S
+        self.visit(ctx.stat_block())
+        # code.add("j ltest")  # and jump to the test
+        self._current_function.add_instruction_JUMP(test_label)
+        # code.addLabel(lendwhile)  # else it is done.
+        self._current_function.add_label(end_while_label) # (Exercise 5)
+
     # visit statements
 
     def visitPrintlnintStat(self, ctx) -> None:
