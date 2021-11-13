@@ -11,3 +11,4 @@
 /TP*/**/*.dot.pdf
 /MiniC-stripped.g4
 .coverage
+htmlcov/
