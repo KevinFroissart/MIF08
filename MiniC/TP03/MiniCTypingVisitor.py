@@ -118,7 +118,7 @@ class MiniCTypingVisitor(MiniCVisitor):
         rtype = self.visit(ctx.expr(1))
 
         if ltype != rtype:
-            self._raiseMismatch(ctx, 'equality operands', ltype, rtype)
+            self._raiseMismatch(ctx, 'equal operands', ltype, rtype)
 
         return BaseType.Boolean
 

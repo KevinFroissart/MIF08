@@ -79,7 +79,7 @@ class MiniCInterpretVisitor(MiniCVisitor):
     def visitEqualityExpr(self, ctx) -> bool:
         lval = self.visit(ctx.expr(0))
         rval = self.visit(ctx.expr(1))
-        # be careful for float equality
+        # be careful for float equal
         if ctx.myop.type == MiniCParser.EQ:
             return lval == rval
         else:

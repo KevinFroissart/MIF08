@@ -3,7 +3,7 @@ LAB4 (simple code generation), MIF08 / CAP 2021-22
 
 # Authors
 
-YOUR NAME HERE
+FROISSART Kévin p2002504
 
 # Contents
 
@@ -36,30 +36,30 @@ and *tested* with appropriate test cases.
 
 ## Code generation
 
-- [ ] Number Atom 
-- [ ] Boolean Atom
-- [ ] Id Atom 
-- [ ] Additive expression
-- [ ] Multiplicative expr
-- [ ] UnaryMinus expr
-- [ ] Or expression
-- [ ] And expression
-- [ ] Equality expression
-- [ ] Relational expression (! many cases -> many tests)
-- [ ] Not expression
+- [X] Number Atom 
+- [X] Boolean Atom
+- [X] Id Atom 
+- [X] Additive expression
+- [X] Multiplicative expr
+- [X] UnaryMinus expr
+- [X] Or expression
+- [X] And expression
+- [X] Equality expression
+- [X] Relational expression (! many cases -> many tests)
+- [X] Not expression
 
 ## Statements
 
-- [ ] Prog, assignements
-- [ ] While
-- [ ] Cond Block
-- [ ] If
-- [ ] Nested ifs
-- [ ] Nested whiles
+- [X] Prog, assignements
+- [X] While
+- [X] Cond Block
+- [X] If
+- [X] Nested ifs
+- [X] Nested whiles
 
 ## Allocation
 
-- [ ] Naive allocation
-- [ ] All in memory allocation
+- [X] Naive allocation
+- [X] All in memory allocation
 - [ ] Massive tests of memory allocation
 

@@ -89,10 +89,23 @@ def replace_mem(old_i):
     ins, old_args = old_i.unfold()
     args = []
     numreg = 1
-    # TODO (Exercise 7): compute before,after,args.
-    # TODO (Exercise 7): iterate over old_args, check which argument
-    # TODO (Exercise 7): is a temporary (e.g. isinstance(..., Temporary)),
-    # TODO (Exercise 7): and if so, generate ld/sd accordingly. Replace the
-    # TODO (Exercise 7): temporary with S[1], S[2] or S[3] physical registers.
+
+    # iterate over old_args, check which argument
+    for arg in old_args :
+        # is a temporary (e.g. isinstance(..., Temporary))
+        if isinstance(arg, Temporary) :
+            # and if so, generate ld/sd accordingly.
+            before.append(Instru3A("ld", S[numreg], arg.get_alloced_loc()))
+            after.append(Instru3A("sd", S[numreg], arg.get_alloced_loc()))
+            # Replace the temporary with S[1], S[2] or S[3] physical registers.
+            arg = S[numreg]
+            numreg += 1
+        args.append(arg)
+
+    # (Exercise 7): compute before,after,args.
+    # (Exercise 7): iterate over old_args, check which argument
+    # (Exercise 7): is a temporary (e.g. isinstance(..., Temporary)),
+    # (Exercise 7): and if so, generate ld/sd accordingly. Replace the
+    # (Exercise 7): temporary with S[1], S[2] or S[3] physical registers.
     i = Instru3A(ins, args=args)
     return before + [i] + after
