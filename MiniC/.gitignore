@@ -12,3 +12,4 @@
 /MiniC-stripped.g4
 .coverage
 htmlcov/
+.coverage.*
