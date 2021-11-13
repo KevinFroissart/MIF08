@@ -19,7 +19,14 @@ TODO for STUDENTS : Say a bit about the code infrastructure ...
 
 # Test design 
 
-TODO: explain your tests
+Tests are divided in 10 different folder.
+Each folder is named after the functionality it tests.
+Each folder contains a set of tests to test the expected 
+behavior of both well written code and bad written one.
+The relational test folder contains 6 other folders to
+test each type of Conditions.
+Eventually, a single test file at the root of 
+the tests/students folder tests the ouf of memory case.
 
 # Design choices
 
@@ -61,5 +68,5 @@ and *tested* with appropriate test cases.
 
 - [X] Naive allocation
 - [X] All in memory allocation
-- [ ] Massive tests of memory allocation
+- [X] Massive tests of memory allocation
 
