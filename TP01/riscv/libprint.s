@@ -1,3 +1,23 @@
+	.globl	println_int
+println_int:
+	addi sp,sp,-8
+	sd   ra, 0(sp)
+	call print_int
+	call newline
+	ld   ra, 0(sp)
+	addi sp,sp,8
+	ret
+	
+	.globl	println_char
+println_char:
+	addi sp,sp,-8
+	sd   ra, 0(sp)
+	call print_char
+	call newline
+	ld   ra, 0(sp)
+	addi sp,sp,8
+	ret
+
 	.text
 	.align	1
 	.globl	println_string

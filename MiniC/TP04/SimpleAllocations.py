@@ -13,10 +13,6 @@ class Allocator():
     def rewriteCode(self, listcode):  # pragma: no cover
         pass
 
-    def run(self):
-        self.prepare()
-        self.rewriteCode(self._function_code)
-
 
 class NaiveAllocator(Allocator):
     def __init__(self, *args):
