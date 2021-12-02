@@ -7,7 +7,7 @@ FROISSART Kévin p2002504
 
 # Contents
 
-TODO for STUDENTS : Say a bit about the code infrastructure ...
+I covered unimplemented methods as asked. Didn't go further.
 
 # Howto
 
@@ -30,11 +30,11 @@ the tests/students folder tests the ouf of memory case.
 
 # Design choices
 
-TODO: explain your choices
+No particular design choices. I followed the documentation as it is given.
 
 # Known bugs
 
-TODO: Bugs and limitations.
+No bugs found.
 
 # Checklists
 
