@@ -8,7 +8,7 @@ FROISSART Kévin p2002504
 
 # Contents
 
-TODO for STUDENTS : Say a bit about the code infrastructure ...
+..
 
 # Howto
 
@@ -35,8 +35,8 @@ Finally, a folder for assign tests.
 
 # Design choices
 
-TODO : explain your choices - explain the limitations of your implementation.
+..
 
 # Known bugs
 
-TODO : document any known bug and limitations. Did you do everything asked for?
+..
