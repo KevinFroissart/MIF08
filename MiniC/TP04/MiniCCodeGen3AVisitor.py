@@ -285,8 +285,6 @@ class MiniCCodeGen3AVisitor(MiniCVisitor):
         # code.addLabel(lendwhile)  # else it is done.
         self._current_function.add_label(end_while_label) # (Exercise 5)
 
-    # visit statements
-
     def visitPrintlnintStat(self, ctx) -> None:
         expr_loc = self.visit(ctx.expr())
         if self._debug:
