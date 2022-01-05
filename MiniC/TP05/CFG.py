@@ -144,7 +144,13 @@ class CFG:
     """
     def _find_leaders(self, instructions: List[Instruction]):
         leaders: List[int] = [0]
-        # TODO fill leaders
+        compteur = 0
+        for instruction in instructions :
+            compteur += 1
+            if instruction.is_cond_jump():
+                leaders.append(compteur)
+            if instruction.is_label():
+                leaders.append(compteur-1)
         # The final "ret" is also a form of jump
         leaders.append(len(instructions))
         return leaders
