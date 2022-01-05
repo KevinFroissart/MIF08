@@ -79,7 +79,7 @@ class AllInMemAllocator(Allocator):
 
 def replace_mem(old_i):
     """Replace Temporary operands with the corresponding allocated
-    memory location. FP points to the stack"""
+    memory location. FP points to the stack."""
     before = []
     after = []
     ins, old_args = old_i.unfold()

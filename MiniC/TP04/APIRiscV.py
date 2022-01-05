@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
+from typing import List
 from Errors import MiniCInternalError
 from .Operands import (
     Condition, Immediate, Offset, Temporary,
@@ -8,7 +9,7 @@ from .Operands import (
     A0,
     ZERO)
 from .Instruction3A import (
-    Instru3A, Jump, CondJump, Comment, Label
+    Instru3A, Instruction, Jump, CondJump, Comment, Label
 )
 
 """
@@ -64,7 +65,7 @@ class LinearCode:
             self._listIns.insert(i, Comment("end " + str(old_i)))
             i += 1
 
-    def get_instructions(self):
+    def get_instructions(self) -> List[Instruction]:
         return self._listIns
 
     def new_tmp(self) -> Temporary:

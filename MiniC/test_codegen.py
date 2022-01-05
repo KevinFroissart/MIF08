@@ -28,7 +28,9 @@ Unit test infrastructure for testing code generation:
 DISABLE_TYPECHECK = False
 TYPECHECK_ONLY = False
 ENABLE_SSA = False
+SSA_OPTIMS = False
 env_bool_variable('ENABLE_SSA', globals())
+env_bool_variable('SSA_OPTIMS', globals())
 
 HERE = os.path.dirname(os.path.realpath(__file__))
 if HERE == os.path.realpath('.'):
@@ -77,9 +79,9 @@ class TestCodeGen(TestExpectPragmas):
         if TYPECHECK_ONLY and expected.exitcode == 0:
             # Compiler does not fail => no output expected
             assert actual.output == "", \
-                "Compiler unexpectedly generated some output with --typecheck-only"
+                "Compiler unexpectedly generated some output with --disable-codegen"
             assert actual.exitcode == 0, \
-                "Compiler unexpectedly failed with --typecheck-only"
+                "Compiler unexpectedly failed with --disable-codegen"
             return
         if DISABLE_TYPECHECK and expected.exitcode != 0:
             # Test should fail at typecheck, and we don't do
@@ -126,10 +128,12 @@ class TestCodeGen(TestExpectPragmas):
                alloc_opt, out_opt]
         if ENABLE_SSA:
             cmd += ['--ssa']
+        if SSA_OPTIMS:
+            cmd += ['--ssa-optim']
         if DISABLE_TYPECHECK:
             cmd += ['--disable-typecheck']
         if TYPECHECK_ONLY:
-            cmd += ['--typecheck-only']
+            cmd += ['--disable-codegen']
         cmd += [file]
         result = self.run_command(cmd)
         print(' '.join(cmd))
@@ -226,7 +230,7 @@ class TestCodeGen(TestExpectPragmas):
             # GCC is more permissive than us, so trying to compile an
             # incorrect program would bring us no information (it may
             # compile, or fail with a different message...)
-            pytest.skip("Not testing the expected value for tests expecting exitcode==1")
+            pytest.skip("Not testing the expected value for tests expecting exitcode!=0")
         gcc_result = self.run_with_gcc(filename, expect)
         self.assert_equal(gcc_result, expect)
 

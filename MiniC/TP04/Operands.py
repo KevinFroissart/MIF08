@@ -99,10 +99,8 @@ class Offset(DataLocation):
         self._offset = offset
         self._basereg = basereg
 
-    def __str__(self):
+    def __repr__(self):
         return("{}({})".format(self._offset, self._basereg))
-
-    __repr__ = __str__
 
     def get_offset(self):
         return self._offset
@@ -116,15 +114,12 @@ class Register(DataLocation):
         super().__init__()
         self._number = number
 
-    def __str__(self):
+    def __repr__(self):
         numreg = self._number
         if numreg not in reg_map:
             raise Exception("Register number %d should not be used", numreg)
         else:
             return ("{}".format(reg_map[numreg]))
-
-    def __repr__(self):
-        return self.__str__()
 
     def __eq__(self, other):
         return isinstance(other, Register) and self._number == other._number
@@ -141,14 +136,11 @@ class RegisterAdd(DataLocation):
         super().__init__()
         self._number = number
 
-    def __str__(self):
+    def __repr__(self):
         if self._number == 2:
             return "sp"
         else:  # should not happen in RISCV
             return ("blu{}".format(self._number))
-
-    def __repr__(self):
-        return self.__str__()
 
 
 class Immediate(DataLocation):
@@ -235,10 +227,8 @@ class Temporary(DataLocation):
         self._pool = pool
         pool.add_tmp(self)
 
-    def __str__(self):
+    def __repr__(self):
         return("temp_{}".format(str(self._number)))
-
-    __repr__ = __str__
 
     def get_alloced_loc(self):
         return self._pool.get_alloced_loc(self)
