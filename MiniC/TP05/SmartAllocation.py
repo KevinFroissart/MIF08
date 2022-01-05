@@ -111,7 +111,7 @@ class SmartAllocator(Allocator):
         # Register or Offset. Our version is less than 15 lines
         # including debug log. You can get all temporaries in
         # self._function_code._pool._all_temps.
-        raise NotImplementedError("Allocation based on graph colouring (lab5)")
+        raise NotImplementedError("Allocation based on graph coloring (lab5)")
         self._function_code._pool.set_temp_allocation(alloc_dict)
         self._function_code._stacksize = self._function_code.get_offset()
 

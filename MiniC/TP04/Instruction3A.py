@@ -107,10 +107,14 @@ class Instru3A(Instruction):
         return [arg for arg in uses if isinstance(arg, Temporary)]
 
     def rename(self, renamer: Renamer):
+        old_replaced = dict()
         for i, arg in enumerate(self.args):
             if isinstance(arg, Temporary):
                 if i == 0 and not self.is_read_only():
+                    old_replaced[arg] = renamer.replace(arg)
                     new_t = renamer.fresh(arg)
+                elif arg in old_replaced.keys():
+                    new_t = old_replaced[arg]
                 else:
                     new_t = renamer.replace(arg)
                 self.args[i] = new_t

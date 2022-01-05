@@ -1,14 +1,14 @@
 from typing import Dict, Set
 from TP04.Operands import Operand
 from TP04.Instruction3A import Instruction, regset_to_string
-from TP05.CFG import Block
+from TP05.CFG import CFG, Block
 import copy
 
 
 class LivenessDataFlow:
 
     def __init__(self, function, debug=False):
-        self._function = function
+        self._function: CFG = function
         self._debug = debug
         # Live Operands at input and output of blocks
         self._blockin: Dict[Block, Set[Operand]] = {}

@@ -1,13 +1,13 @@
 from typing import Dict, Set, Tuple
 from TP04.Operands import Operand
 from TP04.Instruction3A import Instruction, regset_to_string
-from TP05.CFG import Block
+from TP05.CFG import Block, CFG
 from TP05.SSA import PhiNode
 
 
 class LivenessSSA:
 
-    def __init__(self, function, debug=False):
+    def __init__(self, function: CFG, debug=False):
         self._function = function
         self._debug = debug
         self._seen: Dict[Block, Set[Operand]] = dict()
@@ -58,7 +58,14 @@ class LivenessSSA:
         uses: Dict[Operand, Set[Tuple[Block, int, Instruction]]] = dict()
         for block in self._function.get_blocks():
             for pos, instr in enumerate(block.get_instructions()):
-                args = instr.used().values() if isinstance(instr, PhiNode) else instr.used()
+                # Workaround for a weird behavior (aka "bug"...) of Pyright
+                # 1.1.191. If using instr everywhere, Pyright considers it as
+                # type PhiNode | Instruction, and then complains about PhiNode
+                # being incompatible with Instruction on the uses[var] = ...
+                # assignment.
+                instr_or_phi = instr
+                args = instr_or_phi.used().values() if isinstance(instr_or_phi, PhiNode) \
+                    else instr.used()
                 for var in args:
                     if var is not None:
                         var_uses = uses.get(var, set())

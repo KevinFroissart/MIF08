@@ -28,10 +28,10 @@ antlr MiniCLexer.py MiniCParser.py: $(PACKAGE).g4
 
 main-deps: MiniCLexer.py MiniCParser.py TP03/MiniCInterpretVisitor.py TP03/MiniCTypingVisitor.py
 
-.PHONY: tests tests-interpret tests-codegen tests-regalloc clean clean-tests tar antlr
+.PHONY: tests tests-interpret tests-codegen clean clean-tests tar antlr
 
 
-tests: tests-interpret tests-codegen tests-regalloc
+tests: tests-interpret tests-codegen
 
 tests-pyright: antlr
 	pyright .
@@ -55,6 +55,9 @@ tests-smart: tests-pyright antlr
 # Complete testsuite (should pass for lab5):
 tests-codegen: tests-pyright antlr
 	python3 -m pytest $(PYTEST_BASE_OPTS) $(PYTEST_OPTS) ./test_codegen.py
+
+tests-optim: tests-pyright antlr
+	ENABLE_SSA=1 SSA_OPTIMS=1 python3 -m pytest $(PYTEST_BASE_OPTS) $(PYTEST_OPTS) ./test_codegen.py
 
 tar: clean
 	dir=$$(basename "$$PWD") && cd .. && \

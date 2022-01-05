@@ -30,7 +30,15 @@ class Block:
     def __str__(self):
         instr = [i for i in self._listIns if not isinstance(i, Comment)]
         instr_str = '\n'.join(map(str, instr))
-        s = '{}\n\n{}'.format(self._label, instr_str)
+        s = '{}:\n\n{}'.format(self._label, instr_str)
+        return s
+
+    def to_dot(self):
+        # dot is weird: lines ending with \l instead of \n are left-aligned.
+        NEWLINE = '\\l    '
+        instr = [i for i in self._listIns if not isinstance(i, Comment)]
+        instr_str = NEWLINE.join(map(str, instr))
+        s = '{}:{}{}\\l'.format(self._label, NEWLINE, instr_str)
         return s
 
     def __repr__(self):
@@ -84,10 +92,8 @@ class Block:
         gen = set()
         kill = set()
         for i in self.get_instructions():
-            if i.is_instruction():
-                # Reminder: '|' is set union, '-' is subtraction.
-                kill = kill | set(i.defined())
-                gen = (gen | set(i.used())) - kill
+            # Reminder: '|' is set union, '-' is subtraction.
+            raise NotImplementedError()
         self._gen = gen
         self._kill = kill
 
@@ -139,8 +145,8 @@ class CFG:
     def _find_leaders(self, instructions: List[Instruction]):
         leaders: List[int] = [0]
         # TODO fill leaders
-        if len(instructions) not in leaders:
-            leaders.append(len(instructions))
+        # The final "ret" is also a form of jump
+        leaders.append(len(instructions))
         return leaders
 
     """Extract the blocks from the linear code and add them to the CFG"""
@@ -153,6 +159,9 @@ class CFG:
         for i in range(0, len(leaders)-1):
             start = leaders[i]
             end = leaders[i+1]
+            if start == end:
+                # Avoid corner-cases when a label immediately follows a jump
+                continue
             maybe_label = instructions[start]
             if isinstance(maybe_label, Label):
                 block_instrs = instructions[start+1:end]
@@ -333,10 +342,10 @@ class CFG:
             if DF is not None:
                 print(str(name), blk._label)
                 df_str = "{}" if blk not in DF or not len(DF[blk]) else str(DF[blk])
-                graph.add_node(blk._label, label=str(blk) +
+                graph.add_node(blk._label, label=blk.to_dot() +
                                "\n\nDominance frontier:\n" + df_str, shape='rectangle')
             else:
-                graph.add_node(blk._label, label=str(blk), shape='rectangle')
+                graph.add_node(blk._label, label=blk.to_dot(), shape='rectangle')
         # edges
         for name, blk in self._listBlk.items():
             for child in blk._out:

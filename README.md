@@ -30,10 +30,10 @@ L'organisation de l'UE en « mode COVID » est la suivante :
 
 ## Intervenants
 
-* Groupe A : Matthieu Moy (+ Guillaume Bouchard pour les TPs)
-* Groupe B : Elise Jeanneau (+ Gabriel Radanne pour les TPs)
-* Groupe C : Gregoire Pichon (+ Nicolas Louvet pour les TPs)
-* Groupe D : Joris Picot (+ Hugo Thievenaz pour les TPs)
+* Groupe A : Matthieu Moy (+ Guillaume Bouchard pour les TPs groupe A2)
+* Groupe B : Elise Jeanneau (+ Gabriel Radanne pour les TPs groupe B2)
+* Groupe C : Gregoire Pichon (+ Nicolas Louvet pour les TPs groupe C2)
+* Groupe D : Joris Picot (+ Hugo Thievenaz pour les TPs groupe D2)
 
 ## Vidéos des CM
 
@@ -191,6 +191,53 @@ Si vous n'arrivez pas à installer les outils sur vos machines, vous pourrez tra
 
 - :hammer: TP 4 (suite), 14h-17h15 : cf. ci-dessus pour les supports et les salles (mêmes que le 10/11)
 
+## Mercredi 8/12/2021
+
+- :book: Cours 5 : 14h-15h30, allocation de registres
+    - Register allocation + data-flow analyses : [transparents](https://compil-lyon.gitlabpages.inria.fr/mif08-files-2021/capmif_cours07_regalloc.pdf), [vidéo première partie](https://youtu.be/9902mMgDIK8), [vidéo deuxième partie](https://youtu.be/LknSDccweFw).
+    - :100: QCM noté sur TOMUSS, à faire avant dimanche 12/12/2021, 23:59.
+
+- :pencil2: 15h45-17h15 :
+    - Énoncé : [TD4 liveness](https://compil-lyon.gitlabpages.inria.fr/mif08-files-2021/td4.pdf)
+    - Salles :
+        - Groupe A : Nautibus TD 1
+        - Groupe B : Nautibus TD 2
+        - Groupe C : Nautibus TD 3
+        - Groupe D : Nautibus TD 10
+
+## Mercredi 5/01/2022
+
+- :pencil2: 14h-15h30
+    - Énoncé : [TD5 regalloc](https://compil-lyon.gitlabpages.inria.fr/mif08-files-2021/td5.pdf)
+    - Salles :
+        - Groupe A : Nautibus TD 1
+        - Groupe B : Nautibus TD 2
+        - Groupe C : Nautibus TD 3
+        - Groupe D : Nautibus TD 10
+
+- :hammer: 15h45-17h15 : TP5
+    - Énoncé : [TP5 allocation de registres](https://compil-lyon.gitlabpages.inria.fr/mif08-files-2021/tp5.pdf)
+    - Fichiers du TP5 : [MiniC/TP05/](MiniC/TP05/).
+    - Salles :
+        - Groupe A1 : Nautibus TP10
+        - Groupe A2 : Nautibus TP11
+        - Groupe B1 : Nautibus TP5
+        - Groupe B2 : Nautibus TP6
+        - Groupe C1 : Nautibus TP7
+        - Groupe C2 : Nautibus TP8
+        - Groupe D1 : Nautibus TP13
+        - Groupe D2 : Nautibus TP12
+     - **Date limite pour le rendu (noté) : mercredi 12/01/2022, 23h59.**
+
+## Mercredi 12/01/2022
+
+- :hammer: 15h45-17h15 : TP5, suite
+    - Même sujet et organisation que la semaine d'avant en TP.
+
+## Mercredi 19/01/2022
+
+- Examen, 14h.
+
 ## Pondération des notes (indicative pour l'instant sauf l'examen final qui sera forcément 50%)
   - QCM : 10% (2% chacun)
   - TP2 parsing et évaluation d'expression : 5%
@@ -201,103 +248,9 @@ Si vous n'arrivez pas à installer les outils sur vos machines, vous pourrez tra
 
 La session 2 remplace la note d'examen final.
 
-# BROUILLON DE PLANNING
-
-```
-08/12/2021:
-  14:00 -> 15:30 : CM 5 (CM, Matthieu Moy : IR and Register allocations)
-  15:45 -> 17:15 : TD 4 (A, Matthieu Moy : Liveness analysis)
-  15:45 -> 17:15 : TD 4 (B, Elise Jeanneau : Liveness analysis)
-  15:45 -> 17:15 : TD 4 (C, Gregoire Pichon : Liveness analysis)
-  15:45 -> 17:15 : TD 4 (D, Joris Picot : Liveness analysis)
-  15:45 -> 17:15 : TD 4 (E, Guillaume Bouchard : Liveness analysis)
-
-Deadline TP4 juste avant les vacances de noel
-
-05/01/2022:
-  14:00 -> 15:30 : TD 5 (A, Matthieu Moy : Register allocation)
-  14:00 -> 15:30 : TD 5 (B, Elise Jeanneau : Register allocation)
-  14:00 -> 15:30 : TD 5 (C, Gregoire Pichon : Register allocation)
-  14:00 -> 15:30 : TD 5 (D, Joris Picot : Register allocation)
-  14:00 -> 15:30 : TD 5 (E, Guillaume Bouchard : Register allocation)
-  15:45 -> 17:15 : TP 5 (début) (A1, Matthieu Moy : Smart register allocation)
-  15:45 -> 17:15 : TP 5 (début) (B2, Thierry Excoffier : Smart register allocation)
-  15:45 -> 17:15 : TP 5 (début) (B1, Elise Jeanneau : Smart register allocation)
-  15:45 -> 17:15 : TP 5 (début) (C2, Nicolas Louvet : Smart register allocation)
-  15:45 -> 17:15 : TP 5 (début) (C1, Gregoire Pichon : Smart register allocation)
-  15:45 -> 17:15 : TP 5 (début) (D2, Joris Picot : Smart register allocation)
-  15:45 -> 17:15 : TP 5 (début) (D1, Hugo Thievenaz : Smart register allocation)
-  15:45 -> 17:15 : TP 5 (début) (E2, Gabriel Radanne : Smart register allocation)
-  15:45 -> 17:15 : TP 5 (début) (E1, Guillaume Bouchard : Smart register allocation)
-  15:45 -> 17:15 : TP 5 (début) (A2, Lionel Morel : Smart register allocation)
-
-12/01/2022:
-  14:00 -> 15:30 : TP 5 (fin) (A1, Matthieu Moy : Smart register allocation)
-  14:00 -> 15:30 : TP 5 (fin) (B2, Thierry Excoffier : Smart register allocation)
-  14:00 -> 15:30 : TP 5 (fin) (B1, Elise Jeanneau : Smart register allocation)
-  14:00 -> 15:30 : TP 5 (fin) (C2, Nicolas Louvet : Smart register allocation)
-  14:00 -> 15:30 : TP 5 (fin) (C1, Gregoire Pichon : Smart register allocation)
-  14:00 -> 15:30 : TP 5 (fin) (D2, Joris Picot : Smart register allocation)
-  14:00 -> 15:30 : TP 5 (fin) (D1, Hugo Thievenaz : Smart register allocation)
-  14:00 -> 15:30 : TP 5 (fin) (E2, Gabriel Radanne : Smart register allocation)
-  14:00 -> 15:30 : TP 5 (fin) (E1, Guillaume Bouchard : Smart register allocation)
-  14:00 -> 15:30 : TP 5 (fin) (A2, Lionel Morel : Smart register allocation)
-
-Deadline TP5 mercredi 12/1 soir pour éviter les clashs avec les deadlines mif03 (7, 10, 11, 13, 14 janvier selon les groupes).
-```
-
-# CI-DESSOUS, LE PLANNING DE L'ANNEE DERNIERE QUI SERA MIS À JOUR AU FUR ET À MESURE
-
-## Jeudi 10/12/2020
-
-- :hammer: TP, 14h-15h30 : fin du TP 4 (cf. ci-dessus pour les supports et liens chat-info).
-
-- :book: Cours 5, allocation de registres
-    - Register allocation + data-flow analyses : [transparents](https://compil-lyon.gitlabpages.inria.fr/mif08-20/capmif_cours07_regalloc.pdf), [vidéo première partie](https://youtu.be/9902mMgDIK8), [vidéo deuxième partie](https://youtu.be/LknSDccweFw).
-
-- :100: QCM noté sur TOMUSS, à faire avant 23:59 le jour même (10/12)
-
-## Mercredi 6/01/2021
-<!-- 
-- :mag_right: Contrôle continu (tp) (20 min de composition) une grammaire
-    ANTLR -->
-
-Toujours les mêmes groupes et canaux sur chat-info, cf. ci-dessus.
-
-- :pencil2: 14h-15h30 :
-    - Énoncé : [TD4 liveness](https://compil-lyon.gitlabpages.inria.fr/mif08-20/td4.pdf)
-
-- :hammer: 15h45-17h15 : TP5
-    - Énoncé : [TP5 allocation de registres](https://compil-lyon.gitlabpages.inria.fr/mif08-20/tp5.pdf)
-    - Fichiers du TP5 : [MiniC/TP05/](MiniC/TP05/).
-    - **Date limite pour le rendu (noté) : dimanche 17/01/2021, 23h59.**
-
-## Mercredi 13/01/2021
-
-- :pencil2: 14h-15h30
-    - Énoncé : [TD5 regalloc](https://compil-lyon.gitlabpages.inria.fr/mif08-20/td5.pdf)
-
-- :hammer: 15h45-17h15 : TP5, suite
-    - Même sujet et organisation que la semaine d'avant en TP.
-<!-- 
-### Rendus Tomuss et feedback
-
-- CC de cours : la note arrivera fin de la semaine.
-
-- CC de tp noté : rendu mercredi 15/01 à 14h30. La correction
-arrivera avant la fin de la semaine.
-
-- Rendu de l'évaluateur juste après la démo le vendredi 17/01. Une
-note "automatique" vous sera rendue durant le week-end.
-
-- Tps de génération de code directe: rendu le mardi 21/01 à 18h - une
-correction partielle sera fournie à la même heure. 
-
-- Dernier TP : rendu le dimanche 26 à 23h59.
-
-- Les deux dernières notes de TP vous seront fournies après l'examen. -->
-
 ## Annales et consignes pour l'examen
+
+* Aide mémoire fourni avec le sujet en 2021 (un document similaire sera fourni cette année): [mif08_sheet20.pdf](https://compil-lyon.gitlabpages.inria.fr/mif08-20/mif08_sheet20.pdf)
 
 * L'examen Session 1 2020-2021 : [exam_mif08_2020.pdf](https://compil-lyon.gitlabpages.inria.fr/mif08-20/exam_mif08_2020.pdf) et les éléments de corrigé : [exam_mif08_2020_corr.pdf](https://compil-lyon.gitlabpages.inria.fr/mif08-20/exam_mif08_2020_corr.pdf)
 
@@ -305,10 +258,4 @@ correction partielle sera fournie à la même heure.
 
 * L'examen 2018-2019 : [exam_mif08_2018.pdf](https://compil-lyon.gitlabpages.inria.fr/mif08-20/exam_mif08_2018.pdf)
 
-* Aide mémoire fourni avec le sujet (sera fourni pour l'examen de janvier 2021): [mif08_sheet20.pdf](https://compil-lyon.gitlabpages.inria.fr/mif08-20/mif08_sheet20.pdf)
-
 * [Consignes pour l'examen](https://compil-lyon.gitlabpages.inria.fr/mif08-20/exam_mif08_2020-page1.pdf)
-
-* Examen de session 1 :
-    - Pour les étudiants bénéficiant d'un tiers-temps : 8h-10h, salle Nautibus C2.
-    - Pour les étudiants ne bénéficiant pas de tiers-temps : 8h15-9h45, Amphis Déambu (place exacte sur TOMUSS)
