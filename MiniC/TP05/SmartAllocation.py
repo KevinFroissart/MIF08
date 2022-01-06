@@ -13,8 +13,31 @@ def replace_smart(old_i):
     after = []
     ins, old_args = old_i.unfold()
     args = []
+    numreg = 1
     # TODO (lab5): compute before,after,args. This is similar to what
     # TODO (lab5): replace_mem and replace_reg from TP04 do.
+
+    first_arg = old_args[0]
+    if isinstance(first_arg, Temporary) and first_arg.get_alloced_loc() in GP_REGS:
+        if old_i.is_read_only()  :
+            before.append(Instru3A("ld", S[numreg], first_arg.get_alloced_loc()))
+        if not old_i.is_read_only():
+            after.append(Instru3A("sd", S[numreg], first_arg.get_alloced_loc()))
+        first_arg = S[numreg]
+    elif isinstance(first_arg, Temporary):
+        arg = first_arg.get_alloced_loc()
+    numreg += 1
+    args.append(first_arg)
+
+    for arg in old_args[1:]:
+        if isinstance(arg, Temporary) and arg.get_alloced_loc() in GP_REGS:
+            before.append(Instru3A("ld", S[numreg], arg.get_alloced_loc()))
+            arg = S[numreg]
+            numreg += 1
+        elif isinstance(arg, Temporary):
+            arg = first_arg.get_alloced_loc()
+        args.append(arg)
+
     # and now return the new list!
     i = Instru3A(ins, args=args)  # change argument list into args
     return before + [i] + after
@@ -51,7 +74,7 @@ class SmartAllocator(Allocator):
             print("CFG generated in " + self._basename + ".dot.pdf")
         # TODO (lab5): Move the raise statement below down as you progress
         # TODO (lab5): in the lab. It must be removed from the final version.
-        raise NotImplementedError("run: stopping here for now")
+        # raise NotImplementedError("run: stopping here for now")
 
         # liveness analysis
         self._liveness.run()
@@ -74,7 +97,10 @@ class SmartAllocator(Allocator):
     def interfere(self, t1, t2):
         """Interfere function: True if t1 and t2 are in conflit anywhere in
         the function."""
-        raise NotImplementedError("interfere() function (lab5)") # TODO
+        for _, set in self._liveness._liveout.items() :
+            if t1 in set and t2 in set:
+                return True
+        return False
 
     def build_interference_graph(self):
         """Build the interference graph. Nodes of the graph are temporaries,
@@ -111,9 +137,18 @@ class SmartAllocator(Allocator):
         # Register or Offset. Our version is less than 15 lines
         # including debug log. You can get all temporaries in
         # self._function_code._pool._all_temps.
-        raise NotImplementedError("Allocation based on graph coloring (lab5)")
+        coloringreg = self._igraph.color()
+        for reg in self._function_code._pool._all_temps:
+            if coloringreg[reg] >= len(GP_REGS):
+                alloc_dict[reg] = self._function_code.new_offset(FP)
+            else:
+                alloc_dict[reg] = GP_REGS[len(GP_REGS) - 1 - coloringreg[reg]]
+        print(alloc_dict)
         self._function_code._pool.set_temp_allocation(alloc_dict)
         self._function_code._stacksize = self._function_code.get_offset()
+        if self._debug_graphs:
+            print("printing the colored conflict graph")
+            self._igraph.print_dot(outputname, coloringreg)
 
 
 def generate_smart_move(dest: Operand, src: Operand) -> List[Instru3A]:

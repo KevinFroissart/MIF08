@@ -92,8 +92,16 @@ class Block:
         gen = set()
         kill = set()
         for i in self.get_instructions():
+            if i.defined() :
+                kill.add(i.args[0])
+            if i.used() :
+                if i.is_cond_jump() :
+                    gen.update([arg for arg in i.args if isinstance(arg, Temporary) and not arg in kill])
+                else :
+                    for arg in i.args[1:]:
+                        if isinstance(arg, Temporary) and not arg in kill:
+                            gen.add(arg)
             # Reminder: '|' is set union, '-' is subtraction.
-            raise NotImplementedError()
         self._gen = gen
         self._kill = kill
 
@@ -145,12 +153,12 @@ class CFG:
     def _find_leaders(self, instructions: List[Instruction]):
         leaders: List[int] = [0]
         compteur = 0
-        for instruction in instructions :
-            compteur += 1
-            if instruction.is_cond_jump():
-                leaders.append(compteur)
-            if instruction.is_label():
-                leaders.append(compteur-1)
+        for line, instruction in enumerate(instructions) :
+            if instruction.is_label() and line not in leaders:
+                leaders.append(line)
+            if instruction.is_cond_jump() and line not in leaders:
+                leaders.append(line + 1)
+
         # The final "ret" is also a form of jump
         leaders.append(len(instructions))
         return leaders
