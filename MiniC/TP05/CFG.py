@@ -88,6 +88,7 @@ class Block:
             self._listIns.insert(i, Comment("end " + str(old_i)))
             i += 1
 
+    """
     def set_gen_kill(self):
         gen = set()
         kill = set()
@@ -101,6 +102,16 @@ class Block:
                     for arg in i.args[1:]:
                         if isinstance(arg, Temporary) and not arg in kill:
                             gen.add(arg)
+            # Reminder: '|' is set union, '-' is subtraction.
+        self._gen = gen
+        self._kill = kill
+    """
+    def set_gen_kill(self):
+        gen = set()
+        kill = set()
+        for i in self.get_instructions():
+            kill = kill | set(i.defined())
+            gen = (gen | set(i.used())) - kill
             # Reminder: '|' is set union, '-' is subtraction.
         self._gen = gen
         self._kill = kill

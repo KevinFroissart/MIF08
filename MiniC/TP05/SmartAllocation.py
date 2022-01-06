@@ -35,7 +35,7 @@ def replace_smart(old_i):
             arg = S[numreg]
             numreg += 1
         elif isinstance(arg, Temporary):
-            arg = first_arg.get_alloced_loc()
+            arg = arg.get_alloced_loc()
         args.append(arg)
 
     # and now return the new list!
