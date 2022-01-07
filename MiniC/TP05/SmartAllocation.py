@@ -17,26 +17,22 @@ def replace_smart(old_i):
     # TODO (lab5): compute before,after,args. This is similar to what
     # TODO (lab5): replace_mem and replace_reg from TP04 do.
 
-    first_arg = old_args[0]
-    if isinstance(first_arg, Temporary) and first_arg.get_alloced_loc() in GP_REGS:
-        if old_i.is_read_only()  :
-            before.append(Instru3A("ld", S[numreg], first_arg.get_alloced_loc()))
-        if not old_i.is_read_only():
-            after.append(Instru3A("sd", S[numreg], first_arg.get_alloced_loc()))
-        first_arg = S[numreg]
-    elif isinstance(first_arg, Temporary):
-        arg = first_arg.get_alloced_loc()
-    numreg += 1
-    args.append(first_arg)
-
-    for arg in old_args[1:]:
-        if isinstance(arg, Temporary) and arg.get_alloced_loc() in GP_REGS:
-            before.append(Instru3A("ld", S[numreg], arg.get_alloced_loc()))
-            arg = S[numreg]
-            numreg += 1
-        elif isinstance(arg, Temporary):
-            arg = arg.get_alloced_loc()
+    for arg in old_args:
+        if isinstance(arg, Temporary) :
+            loc = arg.get_alloced_loc()
+            if loc not in GP_REGS: 
+                if not old_i.is_read_only():
+                    if numreg == 1:
+                        after.append(Instru3A('sd', S[numreg], loc))
+                    else:
+                        before.append(Instru3A('ld', S[numreg], loc))
+                else:
+                    arg = S[numreg]
+                    before.append(Instru3A('ld', S[numreg], loc))
+            else:
+                arg = arg.get_alloced_loc()
         args.append(arg)
+        numreg += 1
 
     # and now return the new list!
     i = Instru3A(ins, args=args)  # change argument list into args

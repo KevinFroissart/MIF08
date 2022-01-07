@@ -11,4 +11,4 @@ int main()
 
 // EXPECTED
 // EXITCODE 2
-// In function main: Line 8 col 9: type mismatch for equality operands: integer and boolean
+// In function main: Line 8 col 9: type mismatch for equal operands: integer and boolean
